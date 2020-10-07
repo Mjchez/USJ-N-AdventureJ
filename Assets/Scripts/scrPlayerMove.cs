@@ -22,8 +22,11 @@ public class scrPlayerMove : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        rdb.velocity = mov;
+        rdb.velocity = gamecamera.transform.TransformDirection(mov*10);
 
+        transform.forward = gamecamera.transform.forward;
+
+        anim.SetFloat("Walk", rdb.velocity.magnitude);
     }
 
 }
