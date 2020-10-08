@@ -22,8 +22,9 @@ public class scrPlayerMove : MonoBehaviour
     }
 
     private void FixedUpdate(){
+        Vector3 cameraRelativeMov = gamecamera.transform.TransformDirection(mov);
 
-        rdb.velocity = gamecamera.transform.TransformDirection(mov*3);
+        rdb.velocity= new Vector3(cameraRelativeMov.x*4, rdb.velocity.y, cameraRelativeMov.z*4);
 
         transform.forward = gamecamera.transform.forward;
 
