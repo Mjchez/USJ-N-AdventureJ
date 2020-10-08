@@ -22,11 +22,15 @@ public class scrPlayerMove : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        rdb.velocity = gamecamera.transform.TransformDirection(mov*10);
+
+        rdb.velocity = gamecamera.transform.TransformDirection(mov*3);
 
         transform.forward = gamecamera.transform.forward;
 
-        anim.SetFloat("Walk", rdb.velocity.magnitude);
+        Vector3 locVel= transform.InverseTransformDirection(rdb.velocity);
+
+        anim.SetFloat("Walk", locVel.z);
+        anim.SetFloat("SideWalk", locVel.x);
     }
 
 }
