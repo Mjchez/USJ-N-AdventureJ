@@ -9,29 +9,28 @@ public class scrPlayerMove : MonoBehaviour
     Vector3 mov;
 
     GameObject gamecamera;
-    // Start is called before the first frame update
     void Start()
     {
         gamecamera = Camera.main.gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
         mov = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
     }
 
     private void FixedUpdate(){
+        
         Vector3 cameraRelativeMov = gamecamera.transform.TransformDirection(mov);
-
         rdb.velocity= new Vector3(cameraRelativeMov.x*4, rdb.velocity.y, cameraRelativeMov.z*4);
-
-        transform.forward = gamecamera.transform.forward;
-
-        Vector3 locVel= transform.InverseTransformDirection(rdb.velocity);
+        float radtogo = Vector3.Dot(transform.forward, -gamecamera.transform.right)*5;
+        
+        transform.Rotate(0,radtogo,0);
+        Vector3 locVel= transform.InverseTransformDirection(rdb.velocity).normalized;
 
         anim.SetFloat("Walk", locVel.z);
-        anim.SetFloat("SideWalk", locVel.x);
+        anim.SetFloat("SideWalk", locVel.x + radtogo);
+        anim.SetFloat("Speed",rdb.velocity.magnitude + radtogo);
     }
 
 }
