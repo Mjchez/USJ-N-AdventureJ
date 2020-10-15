@@ -9,6 +9,8 @@ public class scrPlayerMove : MonoBehaviour
     Vector3 mov;
 
     GameObject gamecamera;
+
+    public GameObject spine;
     void Start()
     {
         gamecamera = Camera.main.gameObject;
@@ -17,7 +19,13 @@ public class scrPlayerMove : MonoBehaviour
     void Update()
     {
         mov = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
-    }
+
+        if(Input.GetButtonDown("Fire1")){
+            anim.SetBool("Shoot",true);
+        }else{
+            anim.SetBool("Shoot",false);
+        }
+    } 
 
     private void FixedUpdate(){
         
@@ -31,6 +39,10 @@ public class scrPlayerMove : MonoBehaviour
         anim.SetFloat("Walk", locVel.z);
         anim.SetFloat("SideWalk", locVel.x + radtogo);
         anim.SetFloat("Speed",rdb.velocity.magnitude + radtogo);
+    }
+
+    private void LateUpdate(){
+        spine.transform.forward= Camera.main.transform.forward;
     }
 
 }
