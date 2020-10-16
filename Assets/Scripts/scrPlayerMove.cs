@@ -9,6 +9,7 @@ public class scrPlayerMove : MonoBehaviour
     Vector3 mov;
 
     GameObject gamecamera;
+    public GameObject cameraAim;
 
     public GameObject spine;
     void Start()
@@ -19,6 +20,8 @@ public class scrPlayerMove : MonoBehaviour
     void Update()
     {
         mov = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
+
+        cameraAim.transform.forward = gamecamera.transform.forward;
 
         if(Input.GetButtonDown("Fire1")){
             anim.SetBool("Shoot",true);
@@ -41,8 +44,13 @@ public class scrPlayerMove : MonoBehaviour
         anim.SetFloat("Speed",rdb.velocity.magnitude + radtogo);
     }
 
+/*
     private void LateUpdate(){
-        spine.transform.forward= Camera.main.transform.forward;
-    }
+        spine.transform.forward = Camera.main.transform.forward;
+    }   
+*/
 
+    private void OnAnimatorIK(int layerIndex){
+        anim.SetBoneLocalRotation(HumanBodyBones.Spine, cameraAim.transform.localRotation);
+    }
 }

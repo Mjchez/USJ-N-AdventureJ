@@ -187,7 +187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41846009}
-  m_LocalRotation: {x: 0.043085545, y: -0.38973367, z: 0.018257355, w: 0.919738}
+  m_LocalRotation: {x: 0.05935792, y: -0.36245942, z: 0.023138825, w: 0.9298196}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rdb: {fileID: 44947370}
   anim: {fileID: 44947373}
+  cameraAim: {fileID: 294661455}
   spine: {fileID: 1521241637}
 --- !u!1 &62433058
 GameObject:
@@ -331,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2, z: -7}
+  m_FollowOffset: {x: 0, y: 2, z: -5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -383,6 +384,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &294661455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294661456}
+  m_Layer: 0
+  m_Name: cameraaim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294661456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294661455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 44947371}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &337324056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,9 +741,9 @@ MonoBehaviour:
   - m_Height: 4.5
     m_Radius: 3
   - m_Height: 2
-    m_Radius: 7
+    m_Radius: 5
   - m_Height: 2
-    m_Radius: 7
+    m_Radius: 4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 41846010}
@@ -726,7 +757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039435522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -198.4427, y: 2.007141, z: 139.27425}
+  m_LocalPosition: {x: -200.07976, y: 2.007141, z: 140.42317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 41846011}
@@ -801,7 +832,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206380211}
-  m_LocalRotation: {x: 0.02522906, y: -0.38156566, z: 0.010419035, w: 0.92393863}
+  m_LocalRotation: {x: 0.041350547, y: -0.3542977, z: 0.015684213, w: 0.9340863}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1185,8 +1216,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.025229055, y: -0.38156566, z: 0.01041903, w: 0.9239387}
-  m_LocalPosition: {x: -198.4427, y: 2.007141, z: 139.27425}
+  m_LocalRotation: {x: 0.04135056, y: -0.3542977, z: 0.015684208, w: 0.9340863}
+  m_LocalPosition: {x: -200.07976, y: 2.007141, z: 140.42317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1405,7 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2, z: -7}
+  m_FollowOffset: {x: 0, y: 2, z: -5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1523,7 +1554,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924231912}
-  m_LocalRotation: {x: 0.0096477065, y: -0.39013967, z: 0.004088167, w: 0.9206961}
+  m_LocalRotation: {x: 0.025543118, y: -0.36306068, z: 0.009957145, w: 0.9313621}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1604,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2, z: -7}
+  m_FollowOffset: {x: 0, y: 2, z: -5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
