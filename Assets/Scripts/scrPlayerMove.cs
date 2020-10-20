@@ -44,11 +44,11 @@ public class scrPlayerMove : MonoBehaviour
         anim.SetFloat("Speed",rdb.velocity.magnitude + radtogo);
     }
 
-/*
+
     private void LateUpdate(){
-        spine.transform.forward = Camera.main.transform.forward;
+        
     }   
-*/
+
 
     private void OnAnimatorIK(int layerIndex){
         anim.SetBoneLocalRotation(HumanBodyBones.Spine, cameraAim.transform.localRotation);
