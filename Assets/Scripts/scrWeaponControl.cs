@@ -23,7 +23,7 @@ public class scrWeaponControl : MonoBehaviour
     }
 
     IEnumerator ShootSingle()
-    {
+    { 
         anim.SetBool("Shoot",true);
 
         yield return new WaitForSeconds(0.1f);
