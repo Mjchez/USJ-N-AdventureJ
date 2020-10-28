@@ -7,11 +7,12 @@ public class scrPlayerMove : MonoBehaviour
     public Rigidbody rdb;
     public Animator anim;
     Vector3 mov;
-
     GameObject gamecamera;
     public GameObject cameraAim;
-
     public GameObject spine;
+
+    public delegate void WantToBoard();
+    public WantToBoard wantToBoard;
     void Start()
     {
         gamecamera = Camera.main.gameObject;
@@ -20,8 +21,11 @@ public class scrPlayerMove : MonoBehaviour
     void Update()
     {
         mov = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
-
         cameraAim.transform.forward = gamecamera.transform.forward;
+
+        if(Input.GetButtonDown("Fire2")){
+            wantToBoard();
+        }
 
         if(Input.GetButtonDown("Fire1")){
             anim.SetBool("Shoot",true);
