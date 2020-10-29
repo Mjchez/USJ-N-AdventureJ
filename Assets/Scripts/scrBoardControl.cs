@@ -6,25 +6,30 @@ public class scrBoardControl : MonoBehaviour
 {
     public GameObject door;
     scrPlayerMove playerMove;
-
     public scrCarControl carControl;
+    public AudioSource sfxCarMotor;
+    public Transform carSeat;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void TryingToBoard(){
-        playerMove.transform.parent = transform;
+    public bool TryingToBoard(){
+        playerMove.transform.parent = carSeat;
         playerMove.transform.localPosition = Vector3.zero;
-        playerMove.gameObject.SetActive(false);
+        playerMove.transform.localRotation=Quaternion.identity;
+        //playerMove.gameObject.SetActive(false);
         door.transform.rotation=Quaternion.Euler(0,0,0);
         carControl.onBoard=true;
+        playerMove.wantToBoard=null;
+        sfxCarMotor.Play();
+        return true;
 
     }
 
@@ -42,6 +47,7 @@ public class scrBoardControl : MonoBehaviour
 
             if(playerMove)
             {
+                sfxCarMotor.Pause();
                 door.transform.rotation=Quaternion.Euler(0,0,0);
                 playerMove.wantToBoard=null;
                 playerMove=null;
